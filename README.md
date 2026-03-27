@@ -75,6 +75,8 @@ This separation keeps the core logic clean, reusable, and easy to extend.
 3. Set the interval (e.g., every 6 files)  
 4. Start the process  
 
+<br>
+
 The program will:
 - shuffle all files from the main folder
 - insert a special file (or randomly selected file from the special folder) at every n-th position
@@ -184,7 +186,6 @@ main/
 ### Requirements
 - Windows
 - Python (available in `PATH`)
-- PowerShell
 
 <br>
 
@@ -193,9 +194,8 @@ main/
 Clone the repository:
 
 ```
-git clone 
+git clone https://github.com/krzysztof-szczepanik/file-interleaver-tool.git
 ```
-
 
 <br>
 
@@ -207,12 +207,13 @@ Run the GUI:
 ./FileInterleaverGUI.ps1
 ```
 
+<br>
 
-If script execution is blocked:
-
-```
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-```
+> **Note:** If script execution is blocked, run:
+>
+> ```
+> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+> ```
 
 <br>
 
@@ -220,15 +221,21 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ## 🖥️ GUI Overview
 
-The application provides a simple interface for:
-- selecting the input folder
-- choosing a special file or folder
-- setting the interval
-- starting and stopping the process
+### Single special file
+*(Checkbox **not checked** - you can select a single file)*
+
+<div align="center">
+<img width="796" height="243" alt="single_special_file" src="https://github.com/user-attachments/assets/6dc5441d-ea9f-4037-9663-c41861b50de0" />
+</div>
 
 <br>
 
-*(you can add screenshot here later)*
+### Folder of special files
+*(Checkbox **checked** - you can select a folder of special files)*
+
+<div align="center">
+<img width="796" height="243" alt="special_files_folder" src="https://github.com/user-attachments/assets/59e5ca73-946c-4c58-94d5-fed9aaa03bcc" />
+</div>
 
 <br>
 
@@ -244,18 +251,6 @@ The application provides a simple interface for:
 ```
 
 - Input files are always shuffled (no option to disable)
-
-<br>
-
----
-
-## 🚧 Possible Improvements
-
-- Option to disable shuffle
-- Preview before execution
-- Progress indicator
-- Drag & drop support
-- Standalone `.exe` version
 
 <br>
 
