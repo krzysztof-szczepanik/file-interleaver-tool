@@ -84,6 +84,19 @@ The program will:
 
 <br>
 
+### Notes
+
+- Original files are **never modified**
+- All output files are copied into:
+
+```
+<selected_folder>/SORTED
+```
+
+- Input files are always shuffled (no option to disable)
+
+<br>
+
 ---
 
 ## 📌 Example
@@ -236,21 +249,6 @@ Run the GUI:
 <div align="center">
 <img width="796" height="243" alt="special_files_folder" src="https://github.com/user-attachments/assets/59e5ca73-946c-4c58-94d5-fed9aaa03bcc" />
 </div>
-
-<br>
-
----
-
-## 📄 Notes
-
-- Original files are **never modified**
-- All output files are copied into:
-
-```
-<selected_folder>/SORTED
-```
-
-- Input files are always shuffled (no option to disable)
 
 <br>
 
