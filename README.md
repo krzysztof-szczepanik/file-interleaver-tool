@@ -33,8 +33,8 @@ Although inspired by a music use-case, the tool works with **any type of file**,
 ```
 file-interleaver-tool/
 │
-├── run_gui.ps1            # GUI (PowerShell)
-└── file_interleaver.py    # Core logic (Python)
+├── FileInterleaverGUI.ps1    # GUI (PowerShell)
+└── FileInterleaverCore.py    # Core logic (Python)
 ```
 
 <br>
@@ -204,7 +204,7 @@ git clone
 Run the GUI:
 
 ```
-./run_gui.ps1
+./FileInterleaverGUI.ps1
 ```
 
 
@@ -213,7 +213,6 @@ If script execution is blocked:
 ```
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
-
 
 <br>
 
