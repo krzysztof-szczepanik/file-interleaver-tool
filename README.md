@@ -90,7 +90,7 @@ The program will:
 - All output files are copied into:
 
 ```
-<selected_folder>/SORTED
+<selected_folder>/RESULT
 ```
 
 - Input files are always shuffled (no option to disable)
