@@ -4,12 +4,12 @@
 
 ## 📖 Description
 
-File Interleaver Tool is a lightweight utility for building ordered file sequences with interval-based insertion and optional randomization.
+**File Interleaver Tool** is a lightweight utility for creating ordered file sequences with interval-based insertion.
 
-The project was originally created to solve a real-world problem — preparing a playlist for a New Year's Eve party.  
-It allows inserting a specific file (or randomly selected files from another folder) at fixed intervals within a shuffled sequence.
+The project was originally developed to solve a practical problem - preparing a playlist for a New Year's Eve party.  
+It allows inserting a specific file (or a randomly selected file from a folder) at fixed intervals within a shuffled sequence of files.
 
-Although inspired by a music use-case, the tool works with **any file type**, making it a flexible solution for sequence generation and batch file processing.
+Although inspired by a music use-case, the tool works with **any type of file**, making it a flexible solution.
 
 <br>
 
@@ -17,15 +17,13 @@ Although inspired by a music use-case, the tool works with **any file type**, ma
 
 ## ✨ Features
 
-- Automatic random shuffle of input files
-- Interval-based file insertion (every N elements)
-- Supports:
-  - Single file insertion
-  - Random file selection from a folder
+- Shuffle files from a selected folder
+- Insert a special file at fixed intervals
+- Supports single file or folder of special files (**special files** = files inserted as interludes)
 - Works with any file type
-- Automatic file numbering
-- Creates a clean output directory (`SORTED`)
-- Simple GUI built with PowerShell
+- Automatically numbers output files
+- Creates a dedicated output folder (`RESULT`)
+- Simple PowerShell GUI
 
 <br>
 
@@ -48,16 +46,19 @@ file-interleaver-tool/
 The project is intentionally simple and divided into two layers:
 
 - **GUI layer (PowerShell)**  
-  Handles:
-  - user input
-  - file/folder selection
-  - process control (start/stop)
+  Handles **user interaction**, including:
+  - selecting the main folder
+  - optionally selecting a folder for special files (used as interludes)
+  - setting the interval for insertion
+  - controlling the process (Start / Stop)
 
 - **Logic layer (Python)**  
   Responsible for:
   - file shuffling
   - interval insertion logic
-  - copying and renaming files
+  - copying and renaming files into a clean output folder
+
+<br>
 
 This separation keeps the core logic clean, reusable, and easy to extend.
 
@@ -67,17 +68,17 @@ This separation keeps the core logic clean, reusable, and easy to extend.
 
 ## ⚙️ How It Works
 
-1. Select a folder with input files  
-2. Choose:
-   - a single file, or  
-   - a folder containing multiple files  
-3. Set the interval (e.g. every 6 files)  
+1. Select a folder with main input files  
+2. Decide how to insert special files:
+   - Choose a single file, or  
+   - Enable the option to select a folder with multiple files  
+3. Set the interval (e.g., every 6 files)  
 4. Start the process  
 
 The program will:
 - shuffle all files from the main folder
-- insert a special file every N-th position
-- copy everything into a new `SORTED` folder
+- insert a special file (or randomly selected file from the special folder) at every n-th position
+- copy and rename files into a new `RESULT` folder
 
 <br>
 
@@ -85,31 +86,94 @@ The program will:
 
 ## 📌 Example
 
-Input:
+Folder structure:
 
 ```
-song1.mp3
-song2.mp3
-song3.mp3
-song4.mp3
+main/
+├── song1.mp3
+├── song2.mp3
+├── song3.mp3
+├── song4.mp3
+├── song5.mp3
+└── song6.mp3
 ```
 
-Interval = 3  
-Special file = `jingle.mp3`
+<br>
+
+### Example 1 - Single special file
+
+Settings:
+
+```
+Main folder: main/
+Interval: 3
+Special file: jingle.mp3
+```
 
 Output:
 
 ```
-1. song3.mp3
-2. song1.mp3
-3. [INTERLUDE] jingle.mp3
-4. song4.mp3
-5. song2.mp3
-6. [INTERLUDE] jingle.mp3
+main/
+├── song1.mp3
+├── song2.mp3
+├── song3.mp3
+├── song4.mp3
+├── song5.mp3
+└── song6.mp3
+│
+└── RESULT/
+    ├── 1. song2.mp3
+    ├── 2. song4.mp3
+    ├── 3. [INTERLUDE] jingle.mp3
+    ├── 4. song3.mp3
+    ├── 5. song1.mp3
+    ├── 6. [INTERLUDE] jingle.mp3
+    ├── 7. song5.mp3
+    └── 8. song6.mp3
 ```
 
-If a folder is selected instead of a single file:
-- a random file from that folder is inserted each time
+<br>
+
+### Example 2 - Folder of special files
+
+Folder structure for special files:
+
+```
+special/
+├── jingle1.mp3
+├── jingle2.mp3
+└── jingle3.mp3
+```
+
+Settings:
+
+```
+Main folder: main/
+Interval: 3
+Special folder: special/
+```
+
+Output (special files randomly picked from `special/` folder):
+
+```
+main/
+├── song1.mp3
+├── song2.mp3
+├── song3.mp3
+├── song4.mp3
+├── song5.mp3
+└── song6.mp3
+│
+└── RESULT/
+    ├── 1. song2.mp3
+    ├── 2. song4.mp3
+    ├── 3. [INTERLUDE] jingle2.mp3
+    ├── 4. song3.mp3
+    ├── 5. song1.mp3
+    ├── 6. [INTERLUDE] jingle1.mp3
+    ├── 7. song5.mp3
+    └── 8. song6.mp3
+```
 
 <br>
 
