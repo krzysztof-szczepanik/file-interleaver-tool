@@ -11,9 +11,9 @@ It allows inserting a specific file (or a randomly selected file from a folder) 
 
 Although inspired by a music use-case, the tool works with **any type of file**, making it a flexible solution.
 
-<br>
-
 ---
+
+<br>
 
 ## ✨ Features
 
@@ -25,9 +25,9 @@ Although inspired by a music use-case, the tool works with **any type of file**,
 - Creates a dedicated output folder (`RESULT`)
 - Simple PowerShell GUI
 
-<br>
-
 ---
+
+<br>
 
 ## 🏗️ Project Structure
 ```
@@ -37,9 +37,9 @@ file-interleaver-tool/
 └── FileInterleaverCore.py    # Core logic (Python)
 ```
 
-<br>
-
 ---
+
+<br>
 
 ## 🧩 Architecture Overview
 
@@ -62,9 +62,9 @@ The project is intentionally simple and divided into two layers:
 
 This separation keeps the core logic clean, reusable, and easy to extend.
 
-<br>
-
 ---
+
+<br>
 
 ## ⚙️ How It Works
 
@@ -95,9 +95,9 @@ The program will:
 
 - Input files are always shuffled (no option to disable)
 
-<br>
-
 ---
+
+<br>
 
 ## 📌 Example
 
@@ -190,9 +190,9 @@ main/
     └── 8. song6.mp3
 ```
 
-<br>
-
 ---
+
+<br>
 
 ## 🚀 Getting Started
 
@@ -228,9 +228,9 @@ Run the GUI:
 > Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 > ```
 
-<br>
-
 ---
+
+<br>
 
 ## 🖥️ GUI Overview
 
@@ -250,16 +250,16 @@ Run the GUI:
 <img width="796" height="243" alt="special_files_folder" src="https://github.com/user-attachments/assets/59e5ca73-946c-4c58-94d5-fed9aaa03bcc" />
 </div>
 
-<br>
-
 ---
+
+<br>
 
 ## 🤝 Contributing
 This project is not actively maintained, but you are welcome to fork it for personal use or experimentation.
 
-<br>
-
 ---
+
+<br>
 
 ## 📄 License
 This project is released under the **MIT License**. See the [LICENSE](./LICENSE) file for full details.
